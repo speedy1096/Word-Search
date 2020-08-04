@@ -10,15 +10,15 @@ private:
     /* data */
     static const int rowSize = 3;
     static const int colSize = 3;
-    char board[rowSize][colSize];
+    char board[colSize][rowSize];
 
 public:
     Board(/* args */);
     ~Board();
 
-    void setSpace(char);
+    void setSpace(char, int, int);
 
-    void getSpace();
+    char *getSpace(int, int);
 
     void printBoard();
 };
