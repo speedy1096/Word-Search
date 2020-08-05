@@ -6,7 +6,7 @@ Board::Board(/* args */)
     {
         for (int j = 0; j < 12; j++)
         {
-            board[i][j] = 'n';
+            board[i][j] = '\0';
         }
     }
 }
@@ -14,6 +14,9 @@ Board::Board(/* args */)
 Board::~Board()
 {
 }
+
+int Board::getRowSize() { return rowSize; }
+int Board::getColSize() { return colSize; }
 
 void Board::setSpace(char newChar, int col, int row)
 {

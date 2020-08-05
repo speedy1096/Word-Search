@@ -16,6 +16,9 @@ public:
     Board(/* args */);
     ~Board();
 
+    int getColSize();
+    int getRowSize();
+
     void setSpace(char, int, int);
 
     char *getSpace(int, int);
