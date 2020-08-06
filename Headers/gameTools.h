@@ -29,11 +29,25 @@ public:
     // checks if space is empty or has letter
     bool checkSpace(char, int, int);
 
+    bool insertUp(int, int, string);
+
+    bool insertDown(int, int, string);
+
+    bool insertLeft(int, int, string);
+
+    bool insertRight(int, int, string);
+
     // fills the empty spaces
     void fillEmpty();
 
+    char randDirection();
+
     // inserts word in board
-    void setWord(char, int, int);
+    void setWord(string, int, int, char);
+
+    // finds the column, row, and direction to
+    // insert the word
+    void findCoords(string);
 
     void printBoard();
 };

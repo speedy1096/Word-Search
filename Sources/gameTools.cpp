@@ -63,6 +63,78 @@ bool gameTools::checkSpace(char c, int col, int row)
         return false;
 }
 
+bool gameTools::insertUp(int col, int row, string word)
+{
+    for (int i = 0; i < word.length(); i++)
+    {
+        // cout << "col, row " << col << "," << row << endl;
+        if (checkSpace(word.at(i), col, row) == true)
+        {
+            row--;
+            continue;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool gameTools::insertDown(int col, int row, string word)
+{
+    for (int i = 0; i < word.length(); i++)
+    {
+        // cout << "col, row " << col << "," << row << endl;
+        if (checkSpace(word.at(i), col, row) == true)
+        {
+            row++;
+            continue;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool gameTools::insertLeft(int col, int row, string word)
+{
+    for (int i = 0; i < word.length(); i++)
+    {
+        // cout << "col, row " << col << "," << row << endl;
+        if (checkSpace(word.at(i), col, row) == true)
+        {
+            col--;
+            continue;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool gameTools::insertRight(int col, int row, string word)
+{
+    for (int i = 0; i < word.length(); i++)
+    {
+        // cout << "col, row " << col << "," << row << endl;
+        if (checkSpace(word.at(i), col, row) == true)
+        {
+            col++;
+            continue;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 void gameTools::fillEmpty()
 {
     int colS = setBoard.getColSize();
@@ -82,9 +154,143 @@ void gameTools::fillEmpty()
     }
 }
 
-void gameTools::setWord(char c, int col, int row)
+char gameTools::randDirection()
 {
-    setBoard.setSpace(c, col, row);
+    int randDirNum = rand() % 4;
+    char randChar = '\0';
+    switch (randDirNum)
+    {
+    case 0:
+        randChar = 'U';
+        break;
+    case 1:
+        randChar = 'D';
+        break;
+    case 2:
+        randChar = 'L';
+        break;
+    case 3:
+        randChar = 'R';
+        break;
+
+    default:
+        break;
+    }
+    return randChar;
+}
+
+void gameTools::setWord(string word, int col, int row, char direct)
+{
+    cout << "Direction: " << direct << endl;
+    cout << "col,row: " << col << "," << row << endl;
+    switch (direct)
+    {
+    case 'U':
+        for (int i = 0; i < word.length(); i++)
+        {
+            setBoard.setSpace(word.at(i), col, row);
+            row--;
+        }
+        break;
+    case 'D':
+        for (int i = 0; i < word.length(); i++)
+        {
+            setBoard.setSpace(word.at(i), col, row);
+            row++;
+        }
+        break;
+    case 'L':
+        for (int i = 0; i < word.length(); i++)
+        {
+            setBoard.setSpace(word.at(i), col, row);
+            col--;
+        }
+        break;
+    case 'R':
+        for (int i = 0; i < word.length(); i++)
+        {
+            setBoard.setSpace(word.at(i), col, row);
+            col++;
+        }
+        break;
+
+    default:
+        break;
+    }
+}
+// randomly set col and row & dir to set
+// - then check if word will fit [checkSpace] & if letters
+//       overlap if space is filled (compareLEtter)
+// if not repeat [do while loop]
+void gameTools::findCoords(string word)
+{
+    int randCol;
+    int randRow;
+    char randDirect;
+    bool setLetters = false;
+    int loopIter = 0;
+
+    do
+    {
+        randCol = rand() % setBoard.getColSize();
+        randRow = rand() % setBoard.getRowSize();
+        randDirect = randDirection();
+
+        // check if there are enough spaces
+        if (checkLength(randCol, randRow, word, randDirect) == true)
+        {
+            // check if the word will fit in the direction (U,D,L,R)
+            // given its coordinates
+            switch (randDirect)
+            {
+            case 'U':
+                if (insertUp(randCol, randRow, word) == true)
+                {
+                    setLetters = true;
+                }
+                break;
+            case 'D':
+                if (insertDown(randCol, randRow, word) == true)
+                {
+                    setLetters = true;
+                }
+                break;
+            case 'L':
+                if (insertLeft(randCol, randRow, word) == true)
+                {
+                    setLetters = true;
+                }
+                break;
+            case 'R':
+                if (insertRight(randCol, randRow, word) == true)
+                {
+                    setLetters = true;
+                }
+                break;
+
+            default:
+                break;
+            }
+        }
+        else
+        {
+            continue;
+        }
+        loopIter++;
+        if (loopIter > 50)
+        {
+            cout << "Please enter another word or try again." << endl;
+            break;
+        }
+    } while (setLetters == false);
+
+    if (setLetters == true)
+    {
+        //add word
+        setWord(word, randCol, randRow, randDirect);
+        cout << "Word was added successfully!" << endl;
+    }
+    return;
 }
 
 void gameTools::printBoard()

@@ -34,7 +34,8 @@ void Board::printBoard()
     {
         for (int j = 0; j < rowSize; j++)
         {
-            cout << board[i][j] << " ";
+            // switch 'j' & 'i' to represent 2D array
+            cout << board[j][i] << " ";
         }
         cout << endl;
     }
