@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <string>
 #include "Board.h"
 using namespace std;
 
@@ -17,7 +18,7 @@ public:
     ~gameTools();
 
     // checks if word will fit in available row/column & direction
-    bool checkLength(int, int, string, int);
+    bool checkLength(int, int, string, char);
 
     // checks if space is empty
     bool availSpace(int, int);

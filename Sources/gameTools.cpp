@@ -8,8 +8,33 @@ gameTools::~gameTools()
 {
 }
 
-bool gameTools::checkLength(int col, int row, string dir, int size)
+// check if the word will fit on the board in a specific direction
+bool gameTools::checkLength(int col, int row, string word, char dir)
 {
+    int boardSpace;
+    switch (dir)
+    {
+    case 'U':
+        boardSpace = (row + 1) - 0;
+        break;
+    case 'D':
+        boardSpace = setBoard.getRowSize() - row;
+        break;
+    case 'L':
+        boardSpace = (col + 1) - 0;
+        break;
+    case 'R':
+        boardSpace = setBoard.getColSize() - col;
+        break;
+
+    default:
+        break;
+    }
+
+    // word doesn't fit
+    if (word.length() > boardSpace)
+        return false;
+    return true;
 }
 
 bool gameTools::availSpace(int col, int row)
