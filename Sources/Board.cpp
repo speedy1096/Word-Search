@@ -2,11 +2,11 @@
 
 Board::Board(/* args */)
 {
-    for (int i = 0; i < 12; i++)
+    for (int i = 0; i < colSize; i++)
     {
-        for (int j = 0; j < 12; j++)
+        for (int j = 0; j < rowSize; j++)
         {
-            board[i][j] = '\0';
+            board[j][i] = '\0';
         }
     }
 }

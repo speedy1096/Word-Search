@@ -8,8 +8,8 @@ class Board
 {
 private:
     /* data */
-    static const int rowSize = 3;
-    static const int colSize = 3;
+    static const int rowSize = 15;
+    static const int colSize = 15;
     char board[colSize][rowSize];
 
 public:

@@ -47,7 +47,7 @@ public:
 
     // finds the column, row, and direction to
     // insert the word
-    void findCoords(string);
+    bool findCoords(string);
 
     void printBoard();
 };
