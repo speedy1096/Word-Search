@@ -2,6 +2,7 @@
 
 gameTools::gameTools()
 {
+    srand(time(NULL)); // only call srand() once to get different numbers each exucution
 }
 
 gameTools::~gameTools()

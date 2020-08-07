@@ -1,19 +1,31 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cctype>
 #include "Headers/gameMaker.h"
 using namespace std;
+
+bool isLowerCase(string word) // checks if the user enters a word that is not lower case
+{
+     for (int i = 0; i < word.length(); i++)
+     {
+          if (islower(word.at(i)) == false)
+               return false;
+     }
+     return true;
+}
 
 int main()
 {
      gameMaker boardMaster;
      string userInput = "";
-     string stop = "66";
+
      gameTools g2;
+
      cout << "<To Quit> type 66 & hit ENTER>" << endl;
      cout << "----------------------------------" << endl
           << endl;
-     cout << "Please enter a SINGLE word LESS THAN 12 LEETER& hit ENTER." << endl
+     cout << "Please enter a SINGLE word LESS THAN 12 LEETERS & hit ENTER." << endl
           << endl;
 
      do
@@ -21,12 +33,19 @@ int main()
           cout << "load: ";
           cin >> userInput;
           cout << endl;
-          if (userInput.compare("66") == 0)
+
+          if (userInput.compare("66") == 0) // exits loop entered
           {
                break;
           }
 
-          if (userInput.length() > 12)
+          if (isLowerCase(userInput) == false) // user is only allowed to use lower case letters
+          {
+               cout << "Please enter lower case letters only." << endl
+                    << endl;
+               continue;
+          }
+          if (userInput.length() > 12) // user cannot enter words longer than 12 letters
           {
                cout << "The word you entered is too long" << endl
                     << endl;
@@ -43,11 +62,6 @@ int main()
      cout << endl
           << endl;
      boardMaster.printWordBank();
-     // lower class string
-     // g2.findCoords("asr");
-     // g2.findCoords("a");
-     // g2.findCoords("rat");
-     // g2.printBoard();
 
      return 0;
 }

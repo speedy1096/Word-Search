@@ -18,7 +18,8 @@
 #define GAMETOOLS_H
 
 #include <iostream>
-#include <cstdlib>
+#include <stdlib.h>
+#include <time.h>
 #include <string>
 #include "Board.h"
 using namespace std;
@@ -26,37 +27,37 @@ using namespace std;
 class gameTools
 {
 private:
-    Board setBoard;
+  Board setBoard;
 
 public:
-    gameTools(/* args */);
-    ~gameTools();
+  gameTools(/* args */);
+  ~gameTools();
 
-    bool checkLength(int, int, string, char); // check if the word will fit on the board in a specific direction
+  bool checkLength(int, int, string, char); // check if the word will fit on the board in a specific direction
 
-    bool availSpace(int, int); // checks if space is empty [no letter in it]
+  bool availSpace(int, int); // checks if space is empty [no letter in it]
 
-    bool compareLetters(char, int, int); // compares two letters
+  bool compareLetters(char, int, int); // compares two letters
 
-    bool checkSpace(char, int, int); // checks if space is empty [availSpace] or matches the char in param [compareLetters]
+  bool checkSpace(char, int, int); // checks if space is empty [availSpace] or matches the char in param [compareLetters]
 
-    bool insertUp(int, int, string); // checks if the word will fit if inserted UP
+  bool insertUp(int, int, string); // checks if the word will fit if inserted UP
 
-    bool insertDown(int, int, string); // checks if the word will fit if inserted DOWN
+  bool insertDown(int, int, string); // checks if the word will fit if inserted DOWN
 
-    bool insertLeft(int, int, string); // checks if the word will fit if inserted LEFT
+  bool insertLeft(int, int, string); // checks if the word will fit if inserted LEFT
 
-    bool insertRight(int, int, string); // checks if the word will fit if inserted RIGHT
+  bool insertRight(int, int, string); // checks if the word will fit if inserted RIGHT
 
-    char randDirection(); // returns a randdom direction [UP,DOWN,LEFT,RIGHT]
+  char randDirection(); // returns a randdom direction [UP,DOWN,LEFT,RIGHT]
 
-    void setWord(string, int, int, char); // inserts word in board
+  void setWord(string, int, int, char); // inserts word in board
 
-    bool findCoords(string); // finds the column, row, and direction to & if so calls setWord()
+  bool findCoords(string); // finds the column, row, and direction to & if so calls setWord()
 
-    void printBoard(); // prints board file
+  void printBoard(); // prints board file
 
-    void fillEmpty(); // fills the empty spaces at the user stops entering words
+  void fillEmpty(); // fills the empty spaces at the user stops entering words
 };
 
 #endif

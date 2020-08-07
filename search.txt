@@ -1,18 +1,18 @@
-r u r w f n f u p m u w k y x 
-c x e c m z a v b y j u s h x 
-v w p y z k d p E M I T f f z 
-s f g s n y p v n e j x z i r 
-c n g y i c o a p h l w k x z 
-x f x y m x o b l w o h v j P 
-g o r c k f e o j q o m a s H 
-g z p q k x f y v n v s t w Y 
-b v n p a t x g r q a n x n S 
-w s r e s l z p v r o c d k I 
-k r v v v s b o H T A M k k C 
-f t y i w g c e i q E b n u S 
-n k s k s y o y p p S x l f b 
-q j t e r p e l y m A c y n m 
-d p m f e s j f a x B o j u n 
+h g c i o f e h h z v x c s v 
+x q x z h b x c x n g h n d o 
+b b s m y p m w i f h l k o z 
+w w z j r y l v g q z l k t x 
+j w v i k w q z g l z m z f v 
+o d k z b o u n d a r i e s d 
+n f g o o d b y e b y e m h o 
+c i e t a x i m q e r j n i l 
+j a c a r q q b m z o l l e h 
+p o g j f s v e n k a y n s f 
+r m o x r w u y n r g q r o t 
+d c t e x s i b t c d n s j e 
+o f a g z w c r j u r z z i t 
+k f l a z n v c z b j s n q i 
+z e t k v u v c q w x c v q v 
 
 
-TIME     BASE     PHYSICS     MATH     
+hello     goodbye     boundaries     
