@@ -1,6 +1,6 @@
 #include "../Headers/gameTools.h"
 
-gameTools::gameTools(/* args */)
+gameTools::gameTools()
 {
 }
 
@@ -8,10 +8,10 @@ gameTools::~gameTools()
 {
 }
 
-// check if the word will fit on the board in a specific direction
 bool gameTools::checkLength(int col, int row, string word, char dir)
 {
     int boardSpace;
+    // gets the space in the bard for the row or column depeding on the direction
     switch (dir)
     {
     case 'U':
@@ -53,8 +53,6 @@ bool gameTools::compareLetters(char c, int col, int row)
         return false;
 }
 
-/* wants to see if space is empty or [has a letter in it 
-  if so does it match the letter in it] */
 bool gameTools::checkSpace(char c, int col, int row)
 {
     if ((availSpace(col, row) == true) || (compareLetters(c, col, row)))
@@ -67,7 +65,6 @@ bool gameTools::insertUp(int col, int row, string word)
 {
     for (int i = 0; i < word.length(); i++)
     {
-        // cout << "col, row " << col << "," << row << endl;
         if (checkSpace(word.at(i), col, row) == true)
         {
             row--;
@@ -85,7 +82,6 @@ bool gameTools::insertDown(int col, int row, string word)
 {
     for (int i = 0; i < word.length(); i++)
     {
-        // cout << "col, row " << col << "," << row << endl;
         if (checkSpace(word.at(i), col, row) == true)
         {
             row++;
@@ -103,7 +99,6 @@ bool gameTools::insertLeft(int col, int row, string word)
 {
     for (int i = 0; i < word.length(); i++)
     {
-        // cout << "col, row " << col << "," << row << endl;
         if (checkSpace(word.at(i), col, row) == true)
         {
             col--;
@@ -121,7 +116,6 @@ bool gameTools::insertRight(int col, int row, string word)
 {
     for (int i = 0; i < word.length(); i++)
     {
-        // cout << "col, row " << col << "," << row << endl;
         if (checkSpace(word.at(i), col, row) == true)
         {
             col++;
@@ -156,9 +150,9 @@ void gameTools::fillEmpty()
 
 char gameTools::randDirection()
 {
-    int randDirNum = rand() % 4;
+    int randDirNum = rand() % 4; //  gets a random number [0-3]
     char randChar = '\0';
-    switch (randDirNum)
+    switch (randDirNum) // assigns the number to a direction
     {
     case 0:
         randChar = 'U';
@@ -181,7 +175,7 @@ char gameTools::randDirection()
 
 void gameTools::setWord(string word, int col, int row, char direct)
 {
-    switch (direct)
+    switch (direct) // inserts word depending on the direction
     {
     case 'U':
         for (int i = 0; i < word.length(); i++)
@@ -216,30 +210,25 @@ void gameTools::setWord(string word, int col, int row, char direct)
         break;
     }
 }
-// randomly set col and row & dir to set
-// - then check if word will fit [checkSpace] & if letters
-//       overlap if space is filled (compareLEtter)
-// if not repeat [do while loop]
+
 bool gameTools::findCoords(string word)
 {
     int randCol;
     int randRow;
     char randDirect;
-    bool setLetters = false;
-    int loopIter = 0;
+    bool setLetters = false; // boolean for do-while loop
+    int loopIter = 0;        // used to break out of do-while loop after a # of tries
 
-    do
+    do // randonly get a column,row,& direction until one is found or loopIter > 50
     {
-        randCol = rand() % setBoard.getColSize();
-        randRow = rand() % setBoard.getRowSize();
-        randDirect = randDirection();
+        randCol = rand() % setBoard.getColSize(); // randomly get a column [0-((size of column)-1)]
+        randRow = rand() % setBoard.getRowSize(); // randomly get a row [0-((size of row)-1)]
+        randDirect = randDirection();             // randonly get a direction [UP,DOWN,LEFT,RIGHT]
 
         // check if there are enough spaces
         if (checkLength(randCol, randRow, word, randDirect) == true)
         {
-            // check if the word will fit in the direction (U,D,L,R)
-            // given its coordinates
-            switch (randDirect)
+            switch (randDirect) // check if the word will fit in the direction (U,D,L,R) given its coordinates
             {
             case 'U':
                 if (insertUp(randCol, randRow, word) == true)

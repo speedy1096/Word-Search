@@ -1,6 +1,6 @@
 #include "../Headers/gameMaker.h"
 
-gameMaker::gameMaker(/* args */)
+gameMaker::gameMaker()
 {
 }
 

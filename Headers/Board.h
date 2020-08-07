@@ -1,3 +1,10 @@
+/* 
+- Takes care of the basic baord operations
+    # setting a space
+    # getting a sapce
+    # printing the board 
+ */
+
 #ifndef BOARD_H
 #define BOARD_H
 
@@ -9,23 +16,23 @@ class Board
 {
 private:
     /* data */
-    static const int rowSize = 15;
-    static const int colSize = 15;
-    char board[colSize][rowSize];
-    ofstream writeToFile;
+    static const int colSize = 15; // the # of columns
+    static const int rowSize = 15; // the # of rows
+    char board[colSize][rowSize];  // board
+    ofstream writeToFile;          // used to output to screen
 
 public:
-    Board(/* args */);
+    Board();
     ~Board();
 
-    int getRowSize();
-    int getColSize();
+    int getColSize(); // returns the # of columns
+    int getRowSize(); // returns the # of rows
 
-    void setSpace(char, int, int);
+    void setSpace(char, int, int); // sets a letter in the 2d array
 
-    char *getSpace(int, int);
+    char *getSpace(int, int); // return a ptr to the space in the 2d array
 
-    void printBoard();
+    void printBoard(); // prints the board to a file
 };
 
 #endif
