@@ -129,25 +129,6 @@ bool gameTools::insertRight(int col, int row, string word)
     return true;
 }
 
-void gameTools::fillEmpty()
-{
-    int colS = setBoard.getColSize();
-    int rowS = setBoard.getRowSize();
-    char randChar;
-
-    for (int i = 0; i < colS; i++)
-    {
-        for (int j = 0; j < rowS; j++)
-        {
-            if (availSpace(i, j) == true)
-            {
-                randChar = rand() % 26 + 97;
-                setBoard.setSpace(randChar, i, j);
-            }
-        }
-    }
-}
-
 char gameTools::randDirection()
 {
     int randDirNum = rand() % 4; //  gets a random number [0-3]
@@ -287,6 +268,24 @@ void gameTools::printBoard()
     setBoard.printBoard();
 }
 
+void gameTools::fillEmpty()
+{
+    int colS = setBoard.getColSize();
+    int rowS = setBoard.getRowSize();
+    char randChar;
+
+    for (int i = 0; i < colS; i++)
+    {
+        for (int j = 0; j < rowS; j++)
+        {
+            if (availSpace(i, j) == true)
+            {
+                randChar = rand() % 26 + 97;
+                setBoard.setSpace(randChar, i, j);
+            }
+        }
+    }
+}
 /* 
     UNIT TEST for GameTools checkLength
     gameTools g2;

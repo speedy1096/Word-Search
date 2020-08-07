@@ -48,8 +48,6 @@ public:
 
     bool insertRight(int, int, string); // checks if the word will fit if inserted RIGHT
 
-    void fillEmpty(); // fills the empty spaces at the user stops entering words
-
     char randDirection(); // returns a randdom direction [UP,DOWN,LEFT,RIGHT]
 
     void setWord(string, int, int, char); // inserts word in board
@@ -57,6 +55,8 @@ public:
     bool findCoords(string); // finds the column, row, and direction to & if so calls setWord()
 
     void printBoard(); // prints board file
+
+    void fillEmpty(); // fills the empty spaces at the user stops entering words
 };
 
 #endif
