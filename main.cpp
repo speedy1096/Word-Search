@@ -34,7 +34,6 @@ int main()
           }
 
           boardMaster.insert(userInput);
-          boardMaster.printBoard();
 
      } while (userInput.compare("66") != 0);
 

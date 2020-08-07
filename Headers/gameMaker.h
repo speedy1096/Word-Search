@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "gameTools.h"
 using namespace std;
 class gameMaker
@@ -11,6 +12,7 @@ private:
     /* data */
     vector<string> wordBank;
     gameTools tools;
+    ofstream writeToFile;
 
 public:
     gameMaker(/* args */);

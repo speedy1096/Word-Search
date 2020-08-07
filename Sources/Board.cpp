@@ -30,15 +30,20 @@ char *Board::getSpace(int col, int row)
 
 void Board::printBoard()
 {
-    for (int i = 0; i < colSize; i++)
+    writeToFile.open("search.txt", ios_base::out | ios_base::trunc);
+    if (writeToFile.is_open())
     {
-        for (int j = 0; j < rowSize; j++)
+        for (int i = 0; i < colSize; i++)
         {
-            // switch 'j' & 'i' to represent 2D array
-            cout << board[j][i] << " ";
+            for (int j = 0; j < rowSize; j++)
+            {
+                // switch 'j' & 'i' to represent 2D array
+                writeToFile << board[j][i] << " ";
+            }
+            writeToFile << endl;
         }
-        cout << endl;
+        writeToFile << endl
+                    << endl;
     }
-    cout << endl
-         << endl;
+    writeToFile.close();
 }

@@ -28,9 +28,15 @@ void gameMaker::fillEmpty()
 
 void gameMaker::printWordBank()
 {
-    for (int i = 0; i < wordBank.size(); i++)
+    writeToFile.open("search.txt", ios_base::app);
+    if (writeToFile.is_open())
     {
-        cout << wordBank.at(i) << "     ";
+
+        for (int i = 0; i < wordBank.size(); i++)
+        {
+            writeToFile << wordBank.at(i) << "     ";
+        }
+        writeToFile << endl;
     }
-    cout << endl;
+    writeToFile.close();
 }
