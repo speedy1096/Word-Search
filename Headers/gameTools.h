@@ -29,10 +29,6 @@ class gameTools
 private:
   Board setBoard;
 
-public:
-  gameTools(/* args */);
-  ~gameTools();
-
   bool checkLength(int, int, string, char); // check if the word will fit on the board in a specific direction
 
   bool availSpace(int, int); // checks if space is empty [no letter in it]
@@ -52,6 +48,10 @@ public:
   char randDirection(); // returns a randdom direction [UP,DOWN,LEFT,RIGHT]
 
   void setWord(string, int, int, char); // inserts word in board
+
+public:
+  gameTools();
+  ~gameTools();
 
   bool findCoords(string); // finds the column, row, and direction to & if so calls setWord()
 

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cctype>
+#include <cstdlib>
 #include "Headers/gameMaker.h"
 using namespace std;
 
@@ -62,6 +63,9 @@ int main()
      cout << endl
           << endl;
      boardMaster.printWordBank();
+
+     cout << "Open search.txt" << endl;
+     system("pause");
 
      return 0;
 }

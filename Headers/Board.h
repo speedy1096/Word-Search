@@ -15,8 +15,7 @@ using namespace std;
 class Board
 {
 private:
-    /* data */
-    static const int colSize = 15; // the # of columns
+       static const int colSize = 15; // the # of columns
     static const int rowSize = 15; // the # of rows
     char board[colSize][rowSize];  // board
     ofstream writeToFile;          // used to output to screen

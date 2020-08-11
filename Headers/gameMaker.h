@@ -24,8 +24,10 @@ public:
 
     void insert(string); // if word fits in board it is add to the word bank
 
-    void printBoard();    // prints the board to the file
-    void fillEmpty();     // fills the empty spaces
+    void printBoard(); // prints the board to the file
+
+    void fillEmpty(); // fills the empty spaces
+
     void printWordBank(); // prints the word bank to the file
 };
 
